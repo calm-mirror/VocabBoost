@@ -1,0 +1,50 @@
+{
+  "name": "vocabboost",
+  "productName": "VocabBoost",
+  "version": "2.2.0",
+  "description": "VocabBoost - 自主选词、日程记录与打印的英语词汇工具",
+  "main": "main.js",
+  "author": "镜冷桌沉",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "smoke": "electron . --smoke-test",
+    "words": "python build_words.py",
+    "build:dir": "electron-builder --win dir",
+    "build": "electron-builder --win dir"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "com.vocabboost.app",
+    "productName": "VocabBoost",
+    "asar": true,
+    "compression": "maximum",
+    "electronDist": "node_modules/electron/dist",
+    "npmRebuild": false,
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "english-trainer.html",
+      "styles.css",
+      "js/**/*",
+      "words.json",
+      "config.json",
+      "assets/icon.png"
+    ],
+    "win": {
+      "target": [
+        "dir"
+      ],
+      "icon": "assets/icon.ico"
+    }
+  }
+}
